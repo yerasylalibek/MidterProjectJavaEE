@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  cabinet:
+    container_name: midterm_javaee
+    image: postgres:latest
+    hostname: localhost
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    restart: unless-stopped
