@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
+<jsp:useBean id="user" class="kz.edu.iitu.model.User" scope="session"/>
+<jsp:setProperty name="user" property="*"/>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <html>
 <head>
     <title>Tickets</title>
@@ -45,12 +47,12 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="ticket" items="${listTickets}">
+        <c:forEach var="ticket" items="${tickets}">
             <tr>
-                <th scope="row">${ticket.id}</th>
-                <td>${ticket.froma}</td>
-                <td>${ticket.tob}</td>
-                <td>${ticket.price}</td>
+                <th scope="row"><c:out value="${ticket.id}"/></th>
+                <th><c:out value="${ticket.from}"/></th>
+                <th><c:out value="${ticket.to}"/></th>
+                <th><c:out value="${ticket.price}"/></th>
             </tr>
         </c:forEach>
         </tbody>

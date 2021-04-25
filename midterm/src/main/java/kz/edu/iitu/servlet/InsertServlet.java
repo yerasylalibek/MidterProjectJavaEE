@@ -40,9 +40,11 @@ public class InsertServlet extends HttpServlet {
 
         if(res != 0){
             request.setAttribute("success", "Ticket Added!");
+            System.out.println("Sending to tickets.jsp)");
             request.getRequestDispatcher("tickets.jsp").forward(request, response);
         }else{
             request.setAttribute("wrong", "Something wrong! PLease try again!");
+            System.out.println("Something wrong! PLease try again)");
             request.getRequestDispatcher("tickets.jsp").forward(request, response);
         }
 

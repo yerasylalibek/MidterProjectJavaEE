@@ -12,18 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="tickets.jsp">Tickets <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="addTicket.jsp">Add</a>
-            <a class="nav-item nav-link" href="deleteTicket.jsp">Delete</a>
-        </div>
-    </div>
-</nav>
+<%@include file="header.jsp" %>
 
 <form action="insert" method="post">
     <h2> Adding new Ticket</h2>

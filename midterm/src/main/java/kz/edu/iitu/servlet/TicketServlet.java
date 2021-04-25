@@ -30,9 +30,12 @@ public class TicketServlet extends HttpServlet {
             System.out.println(ticket.toString());
         }
 
-        request.setAttribute("listTicket", listTickets);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("tickets.jsp");
-        dispatcher.forward(request, response);
+        request.setAttribute("tickets", listTickets);
+        System.out.println("We came here)");
+
+        request.getRequestDispatcher("tickets.jsp").forward(request, response);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("tickets.jsp");
+//        dispatcher.forward(request, response);
 
     }
 
