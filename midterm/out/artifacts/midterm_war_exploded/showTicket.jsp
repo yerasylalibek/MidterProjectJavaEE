@@ -6,23 +6,22 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="kz.edu.iitu.model.Ticket" %>
+<%@ page import="kz.edu.iitu.dao.TicketDaoImpl" %>
+
 <html>
 <head>
     <title>List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+
+<jsp:useBean id="tickets" class="kz.edu.iitu.dao.TicketDaoImpl"></jsp:useBean>
+
 <%@include file="header.jsp" %>
 
-    <h1>Ticket</h1>
-
-    <h3>${ticket.id}</h3>
-    <br>
-    <h3>${ticket.froma}</h3>
-    <br>
-    <h3>${ticket.tob}</h3>
-    <br>
-    <h3>${ticket.price}</h3>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

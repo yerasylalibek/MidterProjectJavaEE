@@ -15,12 +15,14 @@
 <%@include file="header.jsp" %>
 
 <form action="delete" method="post" style="margin: 5px">
-    <h2>Delete Ticket</h2>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Enter id</label>
-        <input type="text" name = "id" class="form-control" id="exampleInputEmail1" placeholder="Id">
+    <h2 style="text-align: center">Delete Ticket</h2>
+    <div style="margin: 20px">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Enter id</label>
+            <input type="text" name = "id" class="form-control" id="exampleInputEmail1" placeholder="Id">
+        </div>
+        <button type="submit" class="btn btn-primary">Delete ticket</button>
     </div>
-    <button type="submit" class="btn btn-primary">Delete ticket</button>
 </form>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

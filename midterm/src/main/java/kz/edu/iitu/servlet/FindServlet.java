@@ -18,12 +18,11 @@ public class FindServlet extends HttpServlet {
         System.out.println("Find Ticket");
 
         String froma = request.getParameter("froma");
-        TicketDaoImpl ticketDao = new TicketDaoImpl();
-        Ticket ticket = null;
-        ticket = ticketDao.findByName(froma);
+        Ticket ticket = TicketDaoImpl.findByName(froma);
 
         if(ticket != null){
             System.out.println(ticket.toString());
+
             request.setAttribute("success", ticket);
             request.getRequestDispatcher("showTicket.jsp").forward(request, response);
         }else{

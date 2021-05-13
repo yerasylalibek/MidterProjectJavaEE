@@ -20,6 +20,7 @@
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="ticket">Tickets <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="addTicket.jsp">Add</a>
+            <a class="nav-item nav-link" href="findTicket.jsp">Find Ticket</a>
             <a class="nav-item nav-link" href="deleteTicket.jsp">Delete</a>
         </div>
     </div>

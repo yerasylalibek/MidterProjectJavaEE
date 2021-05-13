@@ -15,13 +15,17 @@
 <%@include file="header.jsp" %>
 
 <form action="insert" method="post">
-    <h2> Adding new Ticket</h2>
-    <input type="text" name = "id" class="form-control" placeholder="Id">
-    <input type="text" name = "froma" class="form-control" placeholder="From (A)">
-    <input type="text" name = "tob" class="form-control" placeholder="FRom (B)">
-    <input type="text" name = "price" class="form-control" placeholder="Price">
+    <h2 style="text-align: center"> Adding new Ticket</h2>
 
-    <button type="submit" name="submit" class="btn btn-success btn-block">Add new ticket</button>
+    <div style="margin: 20px" class="form-group">
+        <input type="text" name = "id" class="form-control" placeholder="Id">
+        <input type="text" name = "froma" class="form-control" placeholder="From (A)">
+        <input type="text" name = "tob" class="form-control" placeholder="FRom (B)">
+        <input type="text" name = "price" class="form-control" placeholder="Price">
+
+        <button type="submit" name="submit" class="btn btn-success">Add new ticket</button>
+    </div>
+
 </form>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

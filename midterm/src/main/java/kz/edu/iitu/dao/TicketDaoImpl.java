@@ -13,8 +13,9 @@ public class TicketDaoImpl {
 
     DbConnect dbConnect = new DbConnect();
 
-    public List<Ticket> listAllTicket() throws SQLException {
+    public static List<Ticket> listAllTicket() throws SQLException {
         List<Ticket> listTicket = new ArrayList<Ticket>();
+        DbConnect dbConnect = new DbConnect();
 
         String sql = "SELECT * FROM tickets";
 
@@ -93,7 +94,8 @@ public class TicketDaoImpl {
         return status;
     }
 
-    public Ticket findByName(String froma) {
+    public static Ticket findByName(String froma) {
+        DbConnect dbConnect = new DbConnect();
         Ticket ticket= null;
 
         try{

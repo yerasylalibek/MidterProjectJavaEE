@@ -2,7 +2,11 @@
          pageEncoding="UTF-8" %>
 <jsp:useBean id="user" class="kz.edu.iitu.model.User" scope="session"/>
 <jsp:setProperty name="user" property="*"/>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@ page import="java.util.List" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="kz.edu.iitu.model.Ticket" %>
+<%@ page import="kz.edu.iitu.dao.TicketDaoImpl" %>
+
 <html>
 <head>
     <title>Tickets</title>
@@ -20,6 +24,7 @@
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="tickets.jsp">Tickets <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="addTicket.jsp">Add</a>
+            <a class="nav-item nav-link" href="findTicket.jsp">Find Ticket</a>
             <a class="nav-item nav-link" href="deleteTicket.jsp">Delete</a>
         </div>
     </div>
@@ -28,45 +33,45 @@
     <h3 style="color: red">${message}</h3>
     <h3 style="color: greenyellow">${success}</h3>
 
-    <form action="find" method="post" style="margin: 5px">
-        <h2>Find Ticket</h2>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Enter id</label>
-            <input type="text" name = "froma" class="form-control" id="exampleInputEmail1" placeholder="From where?">
-        </div>
-        <button type="submit" name="submit" class="btn btn-success btn-block">Find</button>
-    </form>
+    <jsp:useBean id="ticket" class="kz.edu.iitu.dao.TicketDaoImpl"></jsp:useBean>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">From</th>
-            <th scope="col">To</th>
-            <th scope="col">Price</th>
-        </tr>
-        </thead>
+    <h1 style="text-align: center"> Available tickets</h1>
+<table class="table" style="padding: 20px; margin: 10px">
+    <thead>
+    <tr>
+        <th scope="col" style="background-color: blanchedalmond">Id</th>
+        <th scope="col" style="background-color: blanchedalmond">From</th>
+        <th scope="col" style="background-color: blanchedalmond">To</th>
+        <th scope="col" style="background-color: blanchedalmond">Price</th>
+    </tr>
+    </thead>
+    <%
+        List<Ticket> tickets = TicketDaoImpl.listAllTicket();
+        int i = 0;
+        while (tickets.size() > i) {
+    %>
         <tbody>
-        <c:forEach var="ticket" items="${tickets}">
-            <tr>
-                <th scope="row"><c:out value="${ticket.id}"/></th>
-                <th><c:out value="${ticket.from}"/></th>
-                <th><c:out value="${ticket.to}"/></th>
-                <th><c:out value="${ticket.price}"/></th>
-            </tr>
-        </c:forEach>
+            <th scope="row"><%= tickets.get(i).getId()%></th>
+            <th><%= tickets.get(i).getFrom()%></th>
+            <th><%= tickets.get(i).getTo()%></th>
+            <th><%= tickets.get(i).getPrice()%></th>
         </tbody>
-    </table>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
+    <%
+            i++;
+        }
+    %>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </div>
 </body>
 </html>
